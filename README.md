@@ -1,67 +1,30 @@
-# Excusas S.A. - Sistema de Gestión de Demoras
+# TP Patrones de Diseño - Excusas S.A.
 
-Este proyecto es una solución integral para la automatización del procesamiento de excusas de empleados, desarrollada para la cátedra de Programación Orientada a Objetos. El sistema utiliza una arquitectura desacoplada basada en múltiples patrones de diseño para garantizar la extensibilidad y el mantenimiento.
+Hola profe. Este es mi trabajo para la materia. El sistema automatiza cómo se manejan las excusas cuando los empleados llegan tarde.
 
-## 🛠 Arquitectura y Patrones de Diseño
+## Cómo funciona el código:
 
-El sistema se basa en los siguientes patrones de diseño, aplicados para resolver los problemas de acoplamiento y repetición de lógica:
+Para que el código sea limpio y no repetir cosas, usé estos patrones:
 
-### 1. Chain of Responsibility (Cadena de Responsabilidad)
-Se implementó para manejar la jerarquía de evaluación de excusas. Cada responsable (`Recepcionista`, `Supervisora`, `GerenteRRHH`, `CEO`) decide si procesa la excusa o la deriva al siguiente eslabón.
-*   **Beneficio:** Permite configurar el orden de evaluación dinámicamente sin modificar las clases de dominio.
+1. **Cadena de Responsabilidad**: Las excusas pasan de uno a otro (Recepcionista -> Supervisora -> CEO). Si uno no puede, se la pasa al siguiente.
+2. **Estado (State) + Delivery**: Los jefes cambian su humor según cuántas excusas procesaron. Hay tres estados: Productivo (menos de 5), Normal (5 a 10) y Vago (11 o más). Esto lo maneja la clase `DeliveryModo` dinámicamente con el método `modoPara()`.
+3. **Método Plantilla (Template Method)**: En la clase base `Encargado` puse la lógica general de cómo revisar una excusa (`revisarExcusa()`) para no repetir el "if puede manejar -> procesa, sino -> deriva" en cada jefe.
+4. **Builder**: Lo usé para armar la cadena de jefes de forma fácil y configurable en el main.
+5. **Observer**: Cuando el CEO acepta algo inverosímil, crea un prontuario y se avisa automáticamente al equipo de dirección y al mismo CEO.
+6. **Singleton**: Para que haya una sola lista (`AdministradorProntuarios`) de prontuarios en todo el sistema.
 
-### 2. State (Estado) + Delivery de Estados
-Cada responsable posee un `DeliveryModo` que gestiona su comportamiento laboral: **Productivo**, **Normal** o **Vago**.
-*   **Lógica de transición:** El estado cambia automáticamente según la cantidad de excusas procesadas (0-5: Productivo, 6-10: Normal, >10: Vago).
-*   **Beneficio:** Cumple con el principio de Abierto/Cerrado (SOLID), permitiendo agregar nuevos modos de desempeño sin alterar la lógica del responsable.
+## Notas adicionales:
+- En lugar de usar un `String` para el tipo de excusa, armé una jerarquía de clases (`ExcusaTrivial`, `ExcusaModerada`, etc.) para aprovechar el polimorfismo.
+- Cumplí con los mensajes específicos de los emails para la Recepcionista, Supervisora (con el check de EDESUR) y el CEO.
 
-### 3. Template Method (Método Plantilla)
-La clase base `Encargado` define el esqueleto del algoritmo de revisión en el método `revisarExcusa()`.
-*   **Hooks:** Los métodos `puedeManejar()` y `procesar()` son implementados por cada subclase.
-*   **Beneficio:** Evita la duplicación de código en la lógica de derivación y control de estados.
-
-### 4. Builder (Constructor)
-Se utiliza `CadenaEncargadosBuilder` para la configuración de la línea de mando.
-*   **Beneficio:** Facilita la creación de cadenas complejas y garantiza que los objetos estén correctamente vinculados.
-
-### 5. Observer (Observador)
-Implementado para la gestión de **Prontuarios**. Cuando el CEO acepta una excusa inverosímil, el `AdministradorProntuarios` (Observable) notifica automáticamente al `EquipoDireccion` y al propio `CEO` (Observers).
-*   **Beneficio:** Desacopla la lógica de persistencia de la lógica de notificación.
-
-### 6. Singleton (Instancia Única)
-El `AdministradorProntuarios` utiliza este patrón para centralizar la gestión de registros.
-*   **Beneficio:** Evita inconsistencias en los datos al garantizar un único punto de acceso a la persistencia de prontuarios.
-
-### 7. Polimorfismo en Excusas
-Se eliminó el uso de atributos planos (como Strings para tipos de excusa) y se implementó una jerarquía (`ExcusaTrivial`, `ExcusaModerada`, etc.).
-*   **Beneficio:** El comportamiento varía según el tipo de objeto, eliminando condicionales complejos (`if/else`) y delegando la responsabilidad al tipo de excusa.
-
-## 🚀 Ejecución y Pruebas
-
-### Requisitos
-*   Java 17 o superior.
-*   Maven 3.x.
-
-### Ejecución del Demo
-Para ver el sistema en funcionamiento con diferentes casos de prueba:
+## Cómo probarlo:
+Para ver cómo funciona todo en la consola con diferentes casos:
 ```bash
-mvn compile exec:java -Dexec.mainClass="com.empresa.Demo"
+javac -d target $(find src/main/java/com/empresa -name "*.java")
+java -cp target com.empresa.Demo
 ```
 
-### Ejecución de Pruebas (TDD)
-El proyecto fue desarrollado siguiendo metodologías de TDD para garantizar la robustez de los cambios de estado y la integridad de la cadena.
-Para correr los tests unitarios e integrales:
+Para correr los tests integrales que comprueban la cadena y los estados:
 ```bash
 mvn test
 ```
-
-## 📂 Estructura del Proyecto
-*   `com.empresa.domain`: Clases de dominio (`Empleado`, `Excusa`, `Prontuario`).
-*   `com.empresa.domain.chain`: Implementación de la Cadena de Responsabilidad.
-*   `com.empresa.domain.state`: Implementación del patrón State.
-*   `com.empresa.domain.observer`: Lógica de notificaciones y Singleton.
-*   `com.empresa.controller`: Punto de entrada del sistema.
-*   `com.empresa.builder`: Configuración dinámica de la cadena.
-
----
-**Desarrollado para el TP de Patrones de Diseño.**

@@ -13,7 +13,7 @@ public class CEO extends Encargado implements IObservador {
     }
 
     @Override
-    public Boolean puedeManejar(Excusa excusa) {
+    public boolean puedeManejar(Excusa excusa) {
         return excusa.esInverosimil();
     }
 

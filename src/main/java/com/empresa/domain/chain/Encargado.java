@@ -30,7 +30,7 @@ public abstract class Encargado extends Empleado implements IEncargado {
         }
     }
 
-    public abstract Boolean puedeManejar(Excusa excusa);
+    public abstract boolean puedeManejar(Excusa excusa);
 
     protected abstract void procesar(Excusa excusa);
 

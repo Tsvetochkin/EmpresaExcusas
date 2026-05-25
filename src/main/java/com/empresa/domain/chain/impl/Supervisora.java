@@ -9,7 +9,7 @@ public class Supervisora extends Encargado {
     }
 
     @Override
-    public Boolean puedeManejar(Excusa excusa) {
+    public boolean puedeManejar(Excusa excusa) {
         return excusa.esModerada();
     }
 

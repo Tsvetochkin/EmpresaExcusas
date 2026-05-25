@@ -9,7 +9,7 @@ public class Recepcionista extends Encargado {
     }
 
     @Override
-    public Boolean puedeManejar(Excusa excusa) {
+    public boolean puedeManejar(Excusa excusa) {
         return excusa.esTrivial();
     }
 
