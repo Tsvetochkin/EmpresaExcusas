@@ -15,8 +15,10 @@ public class Recepcionista extends Encargado {
 
     @Override
     protected void procesar(Excusa excusa) {
-        System.out.println("Recepcionista procesando.");
+        System.out.println("Recepcionista aceptando excusa trivial.");
         excusa.setAceptada(true);
-        excusa.ejecutarAccion((dest, orig, asunto, cuerpo) -> System.out.println("Email enviado."));
+        // Специфическое письмо из ТЗ
+        excusa.ejecutarAccion((dest, orig, asunto, cuerpo) -> 
+            System.out.println("Email enviado a " + dest + " | Asunto: motivo demora | Cuerpo: la licencia fue aceptada"));
     }
 }

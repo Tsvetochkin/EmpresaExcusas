@@ -19,10 +19,12 @@ public class CEO extends Encargado implements IObservador {
 
     @Override
     protected void procesar(Excusa excusa) {
-        System.out.println("CEO " + getNombre() + " procesando excusa inverosímil.");
+        System.out.println("CEO procesando excusa inverosímil.");
         excusa.setAceptada(true);
+        
+        // Текст из ТЗ
         excusa.ejecutarAccion((dest, orig, asunto, cuerpo) -> 
-            System.out.println("Email enviado: " + asunto));
+            System.out.println("Email enviado a " + dest + " | Respuesta: Aprobado por creatividad"));
         
         Prontuario prontuario = new Prontuario(excusa.getEmpleado(), excusa);
         AdministradorProntuarios.getInstancia().registrarProntuario(prontuario);
@@ -30,6 +32,6 @@ public class CEO extends Encargado implements IObservador {
 
     @Override
     public void actualizar(Prontuario prontuario) {
-        System.out.println("CEO " + getNombre() + " notificado de nuevo prontuario.");
+        System.out.println("CEO notificado: nuevo registro en prontuario.");
     }
 }
