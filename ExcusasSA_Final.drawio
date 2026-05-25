@@ -1,0 +1,416 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="cOUdUUYubbNLFPJlJbgT" name="Page-1">
+    <mxGraphModel dx="1415" dy="745" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2100" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="leg0" parent="1" style="text;html=1;strokeColor=none;fillColor=#dbeafe;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;fontColor=#1e3a8a;rounded=1;" value="AZUL: Chain of Responsibility + Template Method" vertex="1">
+          <mxGeometry height="28" width="340" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="text;html=1;strokeColor=none;fillColor=#fce7f3;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;fontColor=#831843;rounded=1;" value="ROSA: State (Modo + DeliveryModo)" vertex="1">
+          <mxGeometry height="28" width="340" x="20" y="54" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="text;html=1;strokeColor=none;fillColor=#dcfce7;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;fontColor=#14532d;rounded=1;" value="VERDE: Observer" vertex="1">
+          <mxGeometry height="28" width="340" x="20" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="text;html=1;strokeColor=none;fillColor=#fef9c3;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;fontColor=#713f12;rounded=1;" value="AMARILLO: Singleton" vertex="1">
+          <mxGeometry height="28" width="340" x="20" y="122" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="text;html=1;strokeColor=none;fillColor=#ede9fe;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;fontColor=#3b0764;rounded=1;" value="VIOLETA: Builder" vertex="1">
+          <mxGeometry height="28" width="340" x="20" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="1" style="text;html=1;strokeColor=none;fillColor=#f1f5f9;align=left;verticalAlign=middle;spacingLeft=4;fontSize=11;fontColor=#1e293b;rounded=1;" value="GRIS: Domain (Excusa, Empleado, EmailSender)" vertex="1">
+          <mxGeometry height="28" width="340" x="20" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Empleado" parent="1" style="swimlane;startSize=30;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=1;fontSize=13;" value="Empleado" vertex="1">
+          <mxGeometry height="150" width="220" x="60" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="Empleado_a" parent="Empleado" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- String nombre&#xa;- String email&#xa;- int nroLegajo" vertex="1">
+          <mxGeometry height="55" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Empleado_m" parent="Empleado" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ getNombre() : String&#xa;+ getEmail() : String&#xa;+ getNroLegajo() : int" vertex="1">
+          <mxGeometry height="55" width="220" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="EmailSender" parent="1" style="swimlane;startSize=45;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=3;fontSize=13;" value="&lt;&lt;interface&gt;&gt;&#xa;EmailSender" vertex="1">
+          <mxGeometry height="70" width="220" x="60" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="EmailSender_m" parent="EmailSender" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ enviarEmail(dest,orig,asunto,cuerpo) : void" vertex="1">
+          <mxGeometry height="25" width="220" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="IExcusa" parent="1" style="swimlane;startSize=45;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=3;fontSize=13;" value="&lt;&lt;interface&gt;&gt;&#xa;IExcusa" vertex="1">
+          <mxGeometry height="120" width="220" x="60" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="IExcusa_m" parent="IExcusa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ esTrivial() : boolean&#xa;+ esModerada() : boolean&#xa;+ esCompleja() : boolean&#xa;+ esInverosimil() : boolean&#xa;+ ejecutarAccion(EmailSender) : void" vertex="1">
+          <mxGeometry height="75" width="220" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="Excusa" parent="1" style="swimlane;startSize=45;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=3;fontSize=13;" value="&lt;&lt;abstract&gt;&gt;&#xa;Excusa" vertex="1">
+          <mxGeometry height="175" width="250" x="60" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="Excusa_a" parent="Excusa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- Empleado empleado&#xa;- boolean aceptada" vertex="1">
+          <mxGeometry height="35" width="250" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="Excusa_m" parent="Excusa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ esTrivial() : boolean  // false&#xa;+ esModerada() : boolean  // false&#xa;+ esCompleja() : boolean  // false&#xa;+ esInverosimil() : boolean  // false&#xa;+ getEmpleado() : Empleado&#xa;+ isAceptada() : boolean&#xa;+ ejecutarAccion(EmailSender) : void" vertex="1">
+          <mxGeometry height="95" width="250" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaTrivial" parent="1" style="swimlane;startSize=30;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=1;fontSize=13;" value="ExcusaTrivial" vertex="1">
+          <mxGeometry height="65" width="230" x="60" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaTrivial_m" parent="ExcusaTrivial" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ esTrivial() : boolean  // true&#xa;+ ejecutarAccion(EmailSender) : void" vertex="1">
+          <mxGeometry height="35" width="230" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaModerada" parent="1" style="swimlane;startSize=45;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=3;fontSize=13;" value="&lt;&lt;abstract&gt;&gt;&#xa;ExcusaModerada" vertex="1">
+          <mxGeometry height="65" width="230" x="330" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaModerada_m" parent="ExcusaModerada" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ esModerada() : boolean  // true&#xa;+ ejecutarAccion(EmailSender) : void" vertex="1">
+          <mxGeometry height="20" width="230" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaLuz" parent="1" style="swimlane;startSize=30;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=1;fontSize=13;" value="ExcusaLuz" vertex="1">
+          <mxGeometry height="55" width="190" x="270" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaLuz_m" parent="ExcusaLuz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ ejecutarAccion(EmailSender) : void" vertex="1">
+          <mxGeometry height="25" width="190" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaFamiliar" parent="1" style="swimlane;startSize=30;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=1;fontSize=13;" value="ExcusaFamiliar" vertex="1">
+          <mxGeometry height="55" width="190" x="480" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaFamiliar_m" parent="ExcusaFamiliar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ ejecutarAccion(EmailSender) : void" vertex="1">
+          <mxGeometry height="25" width="190" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaCompleja" parent="1" style="swimlane;startSize=30;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=1;fontSize=13;" value="ExcusaCompleja" vertex="1">
+          <mxGeometry height="65" width="230" x="600" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaCompleja_m" parent="ExcusaCompleja" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ esCompleja() : boolean  // true&#xa;+ ejecutarAccion(EmailSender) : void" vertex="1">
+          <mxGeometry height="35" width="230" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaInverosimil" parent="1" style="swimlane;startSize=30;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontStyle=1;fontSize=13;" value="ExcusaInverosimil" vertex="1">
+          <mxGeometry height="65" width="230" x="870" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaInverosimil_m" parent="ExcusaInverosimil" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ esInverosimil() : boolean  // true&#xa;+ ejecutarAccion(EmailSender) : void" vertex="1">
+          <mxGeometry height="35" width="230" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Prontuario" parent="1" style="swimlane;startSize=30;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#14532d;fontStyle=1;fontSize=13;" value="Prontuario" vertex="1">
+          <mxGeometry height="95" width="200" x="1140" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="Prontuario_a" parent="Prontuario" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- int nroLegajo" vertex="1">
+          <mxGeometry height="25" width="200" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Prontuario_m" parent="Prontuario" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ getEmpleado() : Empleado&#xa;+ getExcusa() : Excusa" vertex="1">
+          <mxGeometry height="40" width="200" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="IEncargado" parent="1" style="swimlane;startSize=45;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e3a8a;fontStyle=3;fontSize=13;" value="&lt;&lt;interface&gt;&gt;&#xa;IEncargado" vertex="1">
+          <mxGeometry height="65" width="200" x="1140" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="IEncargado_m" parent="IEncargado" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ revisarExcusa(Excusa) : void" vertex="1">
+          <mxGeometry height="20" width="200" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaController" parent="1" style="swimlane;startSize=45;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e3a8a;fontStyle=3;fontSize=13;" value="&lt;&lt;interface&gt;&gt;&#xa;ExcusaController" vertex="1">
+          <mxGeometry height="65" width="200" x="1380" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ExcusaController_m" parent="ExcusaController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ manejar(Excusa) : void" vertex="1">
+          <mxGeometry height="20" width="200" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="Encargado" parent="1" style="swimlane;startSize=45;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e3a8a;fontStyle=3;fontSize=13;" value="&lt;&lt;abstract&gt;&gt;&#xa;Encargado" vertex="1">
+          <mxGeometry height="175" width="270" x="1140" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="Encargado_a" parent="Encargado" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- Encargado siguiente&#xa;- DeliveryModo deliveryModo&#xa;- int excusasProcesadas" vertex="1">
+          <mxGeometry height="35" width="270" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="Encargado_m" parent="Encargado" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ revisarExcusa(Excusa) : void  // template&#xa;+ puedeManejar(Excusa) : boolean  // hook&#xa;# procesar(Excusa) : void  // hook&#xa;+ setSiguiente(Encargado) : void&#xa;+ derivar(Excusa) : void" vertex="1">
+          <mxGeometry height="95" width="270" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DeliveryModos" parent="1" style="swimlane;startSize=30;fillColor=#fce7f3;strokeColor=#db2777;fontColor=#831843;fontStyle=1;fontSize=13;" value="DeliveryModo" vertex="1">
+          <mxGeometry height="185" width="270" x="1620" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="DeliveryModos_a" parent="DeliveryModos" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- List&lt;IModo&gt; modos" vertex="1">
+          <mxGeometry height="35" width="270" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DeliveryModos_m" parent="DeliveryModos" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- modoPara(Encargado) : IModo&#xa;+ agregar(IModo) : void&#xa;+ actuar(Encargado, Excusa) : void&#xa;+ tomarCafe(Encargado) : void&#xa;+ tomarBreak(Encargado, int minutos) : void" vertex="1">
+          <mxGeometry height="120" width="270" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="IModo" parent="1" style="swimlane;startSize=45;fillColor=#fce7f3;strokeColor=#db2777;fontColor=#831843;fontStyle=3;fontSize=13;" value="&lt;&lt;interface&gt;&gt;&#xa;IModo" vertex="1">
+          <mxGeometry height="65" width="200" x="1920" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="IModo_m" parent="IModo" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ manejar(Encargado, Excusa) : void" vertex="1">
+          <mxGeometry height="20" width="200" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="ModoNormal" parent="1" style="swimlane;startSize=30;fillColor=#fce7f3;strokeColor=#db2777;fontColor=#831843;fontStyle=1;fontSize=13;" value="ModoNormal" vertex="1">
+          <mxGeometry height="55" width="180" x="2040" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="ModoNormal_m" parent="ModoNormal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ manejar(Encargado, Excusa) : void" vertex="1">
+          <mxGeometry height="25" width="180" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ModoVago" parent="1" style="swimlane;startSize=30;fillColor=#fce7f3;strokeColor=#db2777;fontColor=#831843;fontStyle=1;fontSize=13;" value="ModoVago" vertex="1">
+          <mxGeometry height="55" width="180" x="2240" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="ModoVago_m" parent="ModoVago" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ manejar(Encargado, Excusa) : void" vertex="1">
+          <mxGeometry height="25" width="180" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ModoProductivo" parent="1" style="swimlane;startSize=30;fillColor=#fce7f3;strokeColor=#db2777;fontColor=#831843;fontStyle=1;fontSize=13;" value="ModoProductivo" vertex="1">
+          <mxGeometry height="55" width="180" x="2280" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="ModoProductivo_m" parent="ModoProductivo" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ manejar(Encargado, Excusa) : void" vertex="1">
+          <mxGeometry height="25" width="180" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Recepcionista" parent="1" style="swimlane;startSize=30;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e3a8a;fontStyle=1;fontSize=13;" value="Recepcionista" vertex="1">
+          <mxGeometry height="80" width="220" x="750" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="Recepcionista_m" parent="Recepcionista" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ puedeManejar(Excusa) : boolean&#xa;# procesar(Excusa) : void" vertex="1">
+          <mxGeometry height="50" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Supervisora" parent="1" style="swimlane;startSize=30;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e3a8a;fontStyle=1;fontSize=13;" value="Supervisora" vertex="1">
+          <mxGeometry height="80" width="220" x="990" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="Supervisora_m" parent="Supervisora" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ puedeManejar(Excusa) : boolean&#xa;# procesar(Excusa) : void" vertex="1">
+          <mxGeometry height="50" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GerenteRRHH" parent="1" style="swimlane;startSize=30;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e3a8a;fontStyle=1;fontSize=13;" value="GerenteRRHH" vertex="1">
+          <mxGeometry height="80" width="220" x="1230" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="GerenteRRHH_m" parent="GerenteRRHH" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ puedeManejar(Excusa) : boolean&#xa;# procesar(Excusa) : void" vertex="1">
+          <mxGeometry height="40" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CEO" parent="1" style="swimlane;startSize=30;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e3a8a;fontStyle=1;fontSize=13;" value="CEO" vertex="1">
+          <mxGeometry height="80" width="220" x="1470" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="CEO_m" parent="CEO" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ puedeManejar(Excusa) : boolean&#xa;# procesar(Excusa) : void" vertex="1">
+          <mxGeometry height="40" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EncargadoDefecto" parent="1" style="swimlane;startSize=30;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e3a8a;fontStyle=1;fontSize=13;" value="EncargadoDefecto" vertex="1">
+          <mxGeometry height="70" width="220" x="1710" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="EncargadoDefecto_m" parent="EncargadoDefecto" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ puedeManejar(Excusa) : boolean&#xa;# procesar(Excusa) : void" vertex="1">
+          <mxGeometry height="40" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IObservador" parent="1" style="swimlane;startSize=45;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#14532d;fontStyle=3;fontSize=13;" value="&lt;&lt;interface&gt;&gt;&#xa;IObservador" vertex="1">
+          <mxGeometry height="65" width="200" x="1620" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="IObservador_m" parent="IObservador" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ actualizar(Prontuario) : void" vertex="1">
+          <mxGeometry height="20" width="200" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="IObservable" parent="1" style="swimlane;startSize=45;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#14532d;fontStyle=3;fontSize=13;" value="&lt;&lt;interface&gt;&gt;&#xa;IObservable" vertex="1">
+          <mxGeometry height="75" width="240" x="1170" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="IObservable_m" parent="IObservable" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ agregarObservador(IObservador) : void&#xa;+ notificarObservadores(Prontuario) : void" vertex="1">
+          <mxGeometry height="30" width="240" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="AdminProntuarios" parent="1" style="swimlane;startSize=30;fillColor=#fef9c3;strokeColor=#ca8a04;fontColor=#713f12;fontStyle=1;fontSize=13;" value="AdministradorProntuarios" vertex="1">
+          <mxGeometry height="145" width="270" x="1320" y="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="AdminProntuarios_a" parent="AdminProntuarios" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- {static} instancia : AdministradorProntuarios&#xa;- List prontuarios&#xa;- List observadores" vertex="1">
+          <mxGeometry height="50" width="270" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AdminProntuarios_m" parent="AdminProntuarios" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ {static} getInstancia() : AdministradorProntuarios&#xa;+ registrarProntuario(Prontuario) : void&#xa;+ agregarObservador(IObservador) : void&#xa;+ notificarObservadores(Prontuario) : void" vertex="1">
+          <mxGeometry height="65" width="270" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EquipoDireccion" parent="1" style="swimlane;startSize=30;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#14532d;fontStyle=1;fontSize=13;" value="EquipoDireccion" vertex="1">
+          <mxGeometry height="55" width="200" x="1890" y="985" as="geometry" />
+        </mxCell>
+        <mxCell id="EquipoDireccion_m" parent="EquipoDireccion" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ actualizar(Prontuario) : void" vertex="1">
+          <mxGeometry height="25" width="200" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CadenaBuilder" parent="1" style="swimlane;startSize=30;fillColor=#ede9fe;strokeColor=#7c3aed;fontColor=#3b0764;fontStyle=1;fontSize=13;" value="CadenaEncargadosBuilder" vertex="1">
+          <mxGeometry height="95" width="250" x="400" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="CadenaBuilder_a" parent="CadenaBuilder" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- List encargados" vertex="1">
+          <mxGeometry height="25" width="250" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CadenaBuilder_m" parent="CadenaBuilder" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ agregar(Encargado) : CadenaEncargadosBuilder&#xa;+ build() : ExcusaController" vertex="1">
+          <mxGeometry height="40" width="250" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="CadenaDeEncargados" parent="1" style="swimlane;startSize=30;fillColor=#ede9fe;strokeColor=#7c3aed;fontColor=#3b0764;fontStyle=1;fontSize=13;" value="CadenaDeEncargados" vertex="1">
+          <mxGeometry height="75" width="230" x="700" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="CadenaDeEncargados_a" parent="CadenaDeEncargados" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="- Encargado primero" vertex="1">
+          <mxGeometry height="25" width="230" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CadenaDeEncargados_m" parent="CadenaDeEncargados" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" value="+ manejar(Excusa) : void" vertex="1">
+          <mxGeometry height="20" width="230" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="e_iexcusa" edge="1" parent="1" source="Excusa" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;dashed=1;strokeColor=#64748b;" target="IExcusa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="Encargado" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#64748b;" target="Empleado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="Encargado" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;dashed=1;strokeColor=#2563eb;" target="IEncargado">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1240" y="400" />
+              <mxPoint x="1240" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="Recepcionista" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#2563eb;" target="Encargado">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="650" />
+              <mxPoint x="1275" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="Supervisora" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#2563eb;" target="Encargado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="GerenteRRHH" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#2563eb;" target="Encargado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="CEO" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#2563eb;" target="Encargado">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1580" y="650" />
+              <mxPoint x="1275" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="EncargadoDefecto" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#2563eb;" target="Encargado">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1820" y="650" />
+              <mxPoint x="1275" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="Encargado" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmanyToOne;startFill=0;strokeColor=#2563eb;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" target="Encargado" value="siguiente">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1480" y="490" />
+              <mxPoint x="1480" y="390" />
+              <mxPoint x="1270" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_enc_delivery" edge="1" parent="1" source="Encargado" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmandOne;startFill=1;strokeColor=#db2777;" target="DeliveryModos" value="deliveryModo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_delivery_list" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmanyToOne;startFill=0;dashed=1;strokeColor=#db2777;entryX=0.19;entryY=1.029;entryDx=0;entryDy=0;entryPerimeter=0;" target="IModo_m" value="modos (List)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1890" y="520" />
+              <mxPoint x="1960" y="520" />
+              <mxPoint x="1960" y="380" />
+              <mxPoint x="1958" y="380" />
+            </Array>
+            <mxPoint x="1890" y="530" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="ModoNormal" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;dashed=1;strokeColor=#db2777;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2110" y="630" />
+              <mxPoint x="2110" y="630" />
+            </Array>
+            <mxPoint x="2110" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;dashed=1;strokeColor=#db2777;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2329.94" y="487.47058823529414" as="sourcePoint" />
+            <mxPoint x="2109.998823529412" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;dashed=1;strokeColor=#db2777;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2110" y="572" />
+            </Array>
+            <mxPoint x="2390" y="572.4705882352941" as="sourcePoint" />
+            <mxPoint x="2110" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="ExcusaTrivial" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#64748b;" target="Excusa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="ExcusaModerada" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#64748b;" target="Excusa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="ExcusaCompleja" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#64748b;" target="Excusa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="ExcusaInverosimil" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#64748b;" target="Excusa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="ExcusaLuz" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#64748b;" target="ExcusaModerada">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="ExcusaFamiliar" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#64748b;" target="ExcusaModerada">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="Excusa" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmandOne;startFill=1;strokeColor=#64748b;" target="Empleado" value="empleado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="Excusa" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;strokeColor=#64748b;" target="EmailSender" value="usa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="Prontuario" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmandOne;startFill=1;strokeColor=#16a34a;" target="Empleado" value="empleado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="Prontuario" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmandOne;startFill=1;strokeColor=#16a34a;" target="Excusa" value="excusa">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="725" y="850" />
+              <mxPoint x="725" y="847" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="AdminProntuarios" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;dashed=1;strokeColor=#16a34a;" target="IObservable">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1360" y="1093" />
+              <mxPoint x="1290" y="1093" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="EquipoDireccion" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;dashed=1;strokeColor=#16a34a;" target="IObservador">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="CEO" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;dashed=1;strokeColor=#16a34a;" target="IObservador">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1610" y="880" />
+              <mxPoint x="1720" y="880" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="1" source="AdminProntuarios" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmanyToOne;startFill=0;strokeColor=#16a34a;" target="IObservador" value="observadores">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e27" edge="1" parent="1" source="AdminProntuarios" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;strokeColor=#ca8a04;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="AdminProntuarios" value="instancia">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="1202" />
+              <mxPoint x="1250" y="1310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e28" edge="1" parent="1" source="CEO" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;strokeColor=#2563eb;" target="Prontuario" value="crea">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1540" y="810" />
+              <mxPoint x="1240" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e29" edge="1" parent="1" source="CEO" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;strokeColor=#2563eb;" target="AdminProntuarios" value="notifica">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1580" y="950" />
+              <mxPoint x="1470" y="950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e30" edge="1" parent="1" source="CadenaDeEncargados" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;dashed=1;strokeColor=#7c3aed;" target="ExcusaController">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e31" edge="1" parent="1" source="CadenaBuilder" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;dashed=1;strokeColor=#7c3aed;" target="CadenaDeEncargados" value="build">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e32" edge="1" parent="1" source="CadenaBuilder" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmanyToOne;startFill=0;strokeColor=#7c3aed;" target="Encargado" value="agrega">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e33" edge="1" parent="1" source="CadenaDeEncargados" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=ERmanyToOne;startFill=0;strokeColor=#7c3aed;" target="Encargado" value="primero">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
